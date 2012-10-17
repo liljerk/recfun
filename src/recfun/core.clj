@@ -7,19 +7,6 @@
 		(or (= row 0) (= column 0) (= row column)) 1
 		:else (+ (pascal (- column 1) (- row 1)) (pascal column (- row 1)))))
 
-(defn bal [chars balance]
-	(cond
-		(or (< balance 0) (empty? chars)) balance
-		:else (bal (rest chars) 
-			(cond
-				(= (first chars) \( ) (+ balance 1)
-				(= (first chars) \) ) (- balance 1)
-				:else balance))))
-
-(defn balancex [chars]
-	(= (bal chars 0) 0))
-
-
 (defn balance [chars]
 	(= 0
 		(loop [c chars balance 0]
@@ -30,7 +17,6 @@
 						(= (first c) \( ) (+ balance 1)
 						(= (first c) \) ) (- balance 1)
 						:else balance))))))
-
 
 (defn countChange [money coins]
 	(cond 
