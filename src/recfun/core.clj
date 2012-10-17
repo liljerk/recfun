@@ -1,5 +1,4 @@
 (ns recfun.core
-	(:require clojure.pprint)
 	(:use clojure.pprint))
 
 (defn pascal [column row]
